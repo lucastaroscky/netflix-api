@@ -1,7 +1,7 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import Show from "./show.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import Show from './show.entity';
 
-@Entity("episodes")
+@Entity('episodes')
 class Episode {
   @PrimaryGeneratedColumn()
   id: number
@@ -12,7 +12,7 @@ class Episode {
   @Column({ length: 45 })
   tite: string
 
-  @Column({ type: "text" })
+  @Column({ type: 'text' })
   description: string
 
   @Column({ length: 45 })

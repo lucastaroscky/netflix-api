@@ -1,8 +1,8 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import ShowCategory from "../enums/show-category.enum";
-import Episode from "./episodes.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import ShowCategory from '../enums/show-category.enum';
+import Episode from './episodes.entity';
 
-@Entity("shows")
+@Entity('shows')
 class Show {
   @PrimaryGeneratedColumn()
   id: number
@@ -16,13 +16,13 @@ class Show {
   @Column({ length: 200 })
   actors: string
 
-  @Column({ type: "longtext" })
+  @Column({ type: 'longtext' })
   description: string
 
   @Column({ length: 200 })
   cover: string
 
-  @Column({ type: "enum", default: ShowCategory.MOVIE, enum: ShowCategory })
+  @Column({ type: 'enum', default: ShowCategory.MOVIE, enum: ShowCategory })
   category: ShowCategory
 
   @OneToMany(() => Episode, episode => episode.show, { eager: true })

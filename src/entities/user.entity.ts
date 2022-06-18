@@ -1,7 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinColumn } from "typeorm"
-import Show from "./show.entity"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinColumn } from 'typeorm'
+import Show from './show.entity'
 
-@Entity("users")
+@Entity('users')
 class User {
   @PrimaryGeneratedColumn()
   id: number
@@ -16,6 +16,5 @@ class User {
   @JoinColumn()
   list: Show[]
 }
-
 
 export default User
