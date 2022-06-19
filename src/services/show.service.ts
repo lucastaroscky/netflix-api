@@ -6,18 +6,18 @@ import NotFoundException from '../exceptions/not-found.exception'
 type CreateShowDTO = Pick<Show, 'title' | 'director' | 'actors' | 'description' | 'cover' | 'category'>
 
 class ShowService {
-  private movieRepository: Repository<Show>
+  private showRepository: Repository<Show>
 
   constructor() {
-    this.movieRepository = AppDataSource.getRepository(Show)
+    this.showRepository = AppDataSource.getRepository(Show)
   }
 
   private async findOne(id: number) {
-    return this.movieRepository.findOne({ where: { id } })
+    return this.showRepository.findOne({ where: { id } })
   }
 
   async list() {
-    return this.movieRepository.find()
+    return this.showRepository.find()
   }
 
   async listOne(id: number) {
@@ -37,17 +37,17 @@ class ShowService {
   }
 
   async create(show: CreateShowDTO) {
-    return this.movieRepository.save(show)
+    return this.showRepository.save(show)
   }
 
   async update(show: Partial<CreateShowDTO>, id: number) {
-    await this.movieRepository.update(id, show)
+    await this.showRepository.update(id, show)
 
-    return this.movieRepository.findOne({ where: { id } })
+    return this.showRepository.findOne({ where: { id } })
   }
 
   async delete(id: number) {
-    const show = await this.movieRepository.delete(id)
+    const show = await this.showRepository.delete(id)
 
     if (!show.affected) {
       throw new NotFoundException(`Show: ${id} was not found!`)

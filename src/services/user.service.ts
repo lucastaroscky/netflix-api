@@ -22,6 +22,12 @@ class UserService {
     return userFound
   }
 
+  async getUserByEmail(email: string) {
+    const userFound = await this.userRepository.findOne({ where: { email } })
+
+    return userFound
+  }
+
   async create(user: CreateUserDTO) {
     const { email, password } = user
     const userAlreadyExists = await this.userRepository.findOne({ where: { email } })

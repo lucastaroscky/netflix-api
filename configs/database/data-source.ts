@@ -5,8 +5,8 @@ export const AppDataSource = new DataSource({
   type: 'mysql',
   host: 'localhost',
   port: 3306,
-  username: 'root',
-  password: 'toor',
+  username: `${process.env.DATABASE_USER}`,
+  password: `${process.env.DATABASE_PASSWORD}`,
   database: 'netflix-api',
   entities: [User, Show, Episode],
   synchronize: true

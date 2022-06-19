@@ -9,14 +9,11 @@ class Episode {
   @Column({ length: 200 })
   cover: string
 
-  @Column({ length: 45 })
+  @Column({ length: 100 })
   title: string
 
   @Column({ type: 'text' })
   description: string
-
-  @Column({ length: 45 })
-  category: string
 
   @Column()
   duration: number
