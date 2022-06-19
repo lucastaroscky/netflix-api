@@ -1,13 +1,13 @@
-import { DataSource } from "typeorm"
-import { Episode, Show, User } from "../../src/entities/"
+import { DataSource } from 'typeorm'
+import { Episode, Show, User } from '../../src/entities/'
 
 export const AppDataSource = new DataSource({
-  type: "mysql",
-  host: "localhost",
+  type: 'mysql',
+  host: 'localhost',
   port: 3306,
-  username: "root",
-  password: "toor",
-  database: "netflix-api",
+  username: 'root',
+  password: 'toor',
+  database: 'netflix-api',
   entities: [User, Show, Episode],
   synchronize: true
 })
@@ -15,9 +15,9 @@ export const AppDataSource = new DataSource({
 async function databaseInit() {
   try {
     await AppDataSource.initialize()
-    console.log("Data Source has been initialized!")
+    console.log('Data Source has been initialized!')
   } catch (err: unknown) {
-    console.error("Error during Data Source initialization", err)
+    console.error('Error during Data Source initialization', err)
   }
 }
 

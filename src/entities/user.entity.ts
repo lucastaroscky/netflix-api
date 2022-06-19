@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm'
 import Show from './show.entity'
 
 @Entity('users')
@@ -13,7 +13,7 @@ class User {
   password: string
 
   @ManyToMany(() => Show, { eager: true })
-  @JoinColumn()
+  @JoinTable()
   list: Show[]
 }
 

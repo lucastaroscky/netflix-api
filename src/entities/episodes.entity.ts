@@ -1,5 +1,5 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import Show from './show.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import Show from './show.entity'
 
 @Entity('episodes')
 class Episode {
@@ -10,7 +10,7 @@ class Episode {
   cover: string
 
   @Column({ length: 45 })
-  tite: string
+  title: string
 
   @Column({ type: 'text' })
   description: string
@@ -25,4 +25,4 @@ class Episode {
   show: Show
 }
 
-export default Episode;
+export default Episode
